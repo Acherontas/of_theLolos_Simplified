@@ -1,0 +1,68 @@
+#include <iostream>
+#include "sum_cdi.h"
+#include <iomanip>
+#include <string>
+#include "math.h"
+using namespace std;
+
+    sum_cdi *smcd=new sum_cdi();
+
+
+int xi(long double main_one,long double main_two,int preci){
+    long double rs_add;
+    long double rs_pol;
+    long double rs_afair;
+    long double rs_afairone;
+    long double rs_diair;
+    long double rs_diairone;
+    rs_add=main_one+main_two;
+    rs_pol=main_one*main_two;
+    rs_afair=main_one-main_two;
+    rs_afairone=main_two-main_one;
+    rs_diair=(long double)main_one/(long double)main_two;
+    rs_diairone=(long double)main_two/(long double)main_one;
+    int x_add=smcd->cdis(rs_add,3);
+    int x_pol=smcd->cdis(rs_pol,3);
+    int x_afair=smcd->cdis(rs_afair,3);
+    int x_afairone=smcd->cdis(rs_afairone,3);
+    int x_diair=smcd->cdis(rs_diair,3);
+    int x_diairone=smcd->cdis(rs_diairone,3);
+    cout<<"rs_add " << std::setprecision(preci) <<std::setprecision(preci) << main_one << " + " <<std::setprecision(preci) << main_two  << " ::== " <<std::setprecision(preci) << rs_add<<" ";
+    cout<<"with cdi of  " << std::setprecision(preci)<<x_add <<"\n";
+    cout<<"rs_pol " << std::setprecision(preci) <<std::setprecision(preci) << main_one << " * " <<std::setprecision(preci) << main_two  << " ::== " <<std::setprecision(preci) << rs_pol<<" ";
+    cout<<"with cdi of  " << std::setprecision(preci)<<x_pol <<"\n";
+    cout<<"rs_afair " << std::setprecision(preci) <<std::setprecision(preci) << main_one << " - " <<std::setprecision(preci) << main_two  << " ::== " <<std::setprecision(preci) << rs_afair<<" ";
+    cout<<"with cdi of  " << std::setprecision(preci)<<x_afair <<"\n";
+    cout<<"rs_afairone " << std::setprecision(preci) <<std::setprecision(preci) << main_two << " - " <<std::setprecision(preci) << main_one  << " ::== " <<std::setprecision(preci) << rs_afairone<<" ";
+    cout<<"with cdi of  " << std::setprecision(preci)<<x_afairone <<"\n";
+    cout<<"rs_diair " << std::setprecision(preci) <<std::setprecision(preci) << main_one << " / " <<std::setprecision(preci) << main_two  << " ::== " <<std::setprecision(preci) << rs_diair<<" ";
+    cout<<"with cdi of  " << std::setprecision(preci)<<x_diair <<"\n";
+    cout<<"rs_diairone " << std::setprecision(preci) <<std::setprecision(preci) << main_two<< " / " <<std::setprecision(preci) << main_one  << " ::== " <<std::setprecision(preci) << rs_diairone<<" ";
+    cout<<"with cdi of  " << std::setprecision(preci)<<x_diairone <<"\n";
+    return 0;
+}
+
+
+int main(int argc,char** argv)
+{
+    cout<<"enter 4 numbers and a preci \n";
+    cout<<"the first and third must have the same cdi\n";
+    cout<<"the second and fourth must have the same cdi\n";
+    cout<<"where cdi stands for sum of digit\n";
+    cout<<"eg 2785 78895621 22 46 \n";
+    cout<<"\n";
+    long double main_one;
+    long double main_two;
+    long double mn_one;
+    long double mn_two;
+    int preci;
+    main_one=stold(argv[1]);
+    main_two=stold(argv[2]);
+    mn_one=stold(argv[3]);
+    mn_two=stold(argv[4]);
+    preci=stold(argv[5]);
+    xi(main_one,main_two,preci);
+    cout<<"\n";
+    xi(mn_one,mn_two,preci);
+    return 0;
+}

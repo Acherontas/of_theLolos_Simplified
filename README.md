@@ -35,6 +35,8 @@ rs_diair 10 / 9 ::== 1.11111111111111 with cdi of  1
 rs_diairone 9 / 10 ::== 0.9 with cdi of  0
 
 
+
+
 rs_add 46 + 36 ::== 82 with cdi of  1
 
 rs_pol 46 * 36 ::== 1656 with cdi of  9
